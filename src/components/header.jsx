@@ -49,13 +49,13 @@ function MyDropdown() {
 
 export default function Header() {
   return (
-    <div className='header flex justify-between min-w-[1200px] px-40 py-5'>
-      <div>Eprime</div>
+    <div className='header flex justify-between min-w-[1300px] w-full h-[90px] px-40 py-5 absolute top-0'>
+      <h1 className='text-xl'>Eprime</h1>
       <div className='flex w-[80%] justify-around'>
         <span className='sm:ml-3'>
           <button
             type='button'
-            className='inline-flex items-center rounded-md bg-white px-5 py-2 text-sm font-semibold text-gray-900 border-b-2  hover:bg-gray-50'
+            className='inline-flex items-center px-8 py-2 text-sm font-semibold text-gray-900 border-b-2  hover:border-sky-800 hover:text-gray-500'
           >
             <LinkIcon className='-ml-0.5 mr-1.5 h-5 w-5' aria-hidden='true' />
             회사소개
@@ -64,7 +64,7 @@ export default function Header() {
         <span className='sm:ml-3'>
           <button
             type='button'
-            className='inline-flex items-center rounded-md bg-white px-5 py-2 text-sm font-semibold text-gray-900 border-b-2  hover:bg-gray-50'
+            className='inline-flex items-center  px-8 py-2 text-sm font-semibold text-gray-900 border-b-2  hover:border-sky-800 hover:text-gray-500'
           >
             <BriefcaseIcon
               className='-ml-0.5 mr-1.5 h-5 w-5'
@@ -76,7 +76,7 @@ export default function Header() {
         <span className='sm:ml-3'>
           <button
             type='button'
-            className='inline-flex items-center rounded-md bg-white px-5 py-2 text-sm font-semibold text-gray-900 border-b-2  hover:bg-gray-50'
+            className='inline-flex items-center px-8 py-2 text-sm font-semibold text-gray-900 border-b-2 hover:border-sky-800 hover:text-gray-500'
           >
             <CheckIcon className='-ml-0.5 mr-1.5 h-5 w-5' aria-hidden='true' />
             ESG
@@ -85,7 +85,7 @@ export default function Header() {
         <span className='sm:ml-3'>
           <button
             type='button'
-            className='inline-flex items-center rounded-md bg-white px-5 py-2 text-sm font-semibold text-gray-900 border-b-2  hover:bg-gray-50'
+            className='inline-flex items-center px-8 py-2 text-sm font-semibold text-gray-900 border-b-2 hover:border-sky-800 hover:text-gray-500'
           >
             <PencilIcon className='-ml-0.5 mr-1.5 h-5 w-5' aria-hidden='true' />
             소통마당
@@ -97,7 +97,7 @@ export default function Header() {
         <span className='sm:ml-3'>
           <button
             type='button'
-            className='inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'
+            className='inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-500'
           >
             KOR
           </button>
@@ -112,7 +112,7 @@ export default function Header() {
           </button>
         </span>
       </div>
-      <div className='relative top-5 -left-5 w-56 text-right'>
+      <div className='relative top-5 -left-10 w-56 text-right'>
         <MenuDropdown />
       </div>
     </div>
