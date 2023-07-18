@@ -43,6 +43,8 @@ html {
 
 body {
   margin: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 /* 기본 셋업 */
