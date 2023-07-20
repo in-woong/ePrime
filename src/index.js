@@ -7,7 +7,9 @@ import ErrorPage from './pages/errorPage';
 import Contact from './routes/contact';
 import MainPage from './pages/mainPage';
 import SigninPage from './pages/signinPage';
-import LoginPage from './pages/LoginPage';
+import LoginPage from './pages/loginPage';
+import EsgPage from './pages/form/esgPage';
+import AdminPage from './pages/adminPage';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,12 @@ const router = createBrowserRouter([
   },
   { path: 'signin', element: <SigninPage /> },
   { path: 'login', element: <LoginPage /> },
-  { path: '' },
+  { path: 'admin', element: <AdminPage /> },
+  {
+    path: 'form/esg',
+
+    element: <EsgPage />,
+  },
   {
     path: 'contacts/:contactId',
     element: <Contact />,

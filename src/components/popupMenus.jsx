@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function PopupMenus() {
   return (
     <div className='flex flex-col justify-center items-center h-full w-[650px]'>
@@ -5,7 +7,7 @@ export default function PopupMenus() {
         <li className='flex justify-between items-center'>
           ESG 경영 전략 수립시 양질의 원료가 필요하신 분!{' '}
           <button className='text-xl font-bold hover:text-gray-500'>
-            Click
+            <Link to='form/esg'>Click</Link>
           </button>
         </li>
         <li className='flex justify-between items-center'>

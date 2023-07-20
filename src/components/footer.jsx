@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className='footer p-10 grid grid-cols-3 bg-gray-100 text-gray-800 dark:text-gray-100 dark:bg-gray-900 footer-center '>
+    <footer className='footer min-w-[1300px] w-full p-10 grid grid-cols-3 bg-gray-100 text-gray-800 dark:text-gray-100 dark:bg-gray-900 footer-center '>
       <div>
         <div>Contact Us</div>
         <div className='text-4xl font-extrabold py-2'>1588-1539</div>
@@ -26,6 +26,7 @@ const Footer = () => {
         <div className='grid grid-flow-col gap-4 max-w-sm'>
           <a
             href='https://www.facebook.com/0base'
+            rel='noreferrer'
             target='_blank'
             data-tip='facebook'
             className='tooltip'
@@ -46,6 +47,7 @@ const Footer = () => {
           <a
             href='https://www.instagram.com/zerobase.official'
             target='_blank'
+            rel='noreferrer'
             data-tip='instagram'
             className='tooltip'
           >
@@ -63,6 +65,7 @@ const Footer = () => {
           </a>
           <a
             href='https://github.com/oinochoe'
+            rel='noreferrer'
             target='_blank'
             data-tip='github'
             className='tooltip ml-1'
