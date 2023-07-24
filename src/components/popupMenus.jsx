@@ -16,7 +16,7 @@ export default function PopupMenus() {
         <li className='flex justify-between items-center'>
           폐자원(Pellet, Flake 포함)을 사고 파는데 도움이 필요하신 분!
           <Link
-            to='form_product'
+            to='/form_product'
             className='text-xl font-bold hover:text-gray-500'
           >
             Click
@@ -24,15 +24,21 @@ export default function PopupMenus() {
         </li>
         <li className='flex justify-between items-center'>
           24 스마트생태공장구축 지원사업 신청하시고자 하는분!
-          <button className='text-xl font-bold hover:text-gray-500'>
+          <Link
+            to='/form_produce'
+            className='text-xl font-bold hover:text-gray-500'
+          >
             Click
-          </button>
+          </Link>
         </li>
         <li className='flex justify-between items-center'>
           재활용 사업 소모품을 저렴하게 구입하시고자 하는 분!
-          <button className='text-xl font-bold hover:text-gray-500'>
+          <Link
+            to='/form_pick'
+            className='text-xl font-bold hover:text-gray-500'
+          >
             Click
-          </button>
+          </Link>
         </li>
         <li className='flex justify-between items-center'>
           기타 재활용사업 수행과 관련하여 도움이 필요한 분!
