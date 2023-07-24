@@ -11,6 +11,8 @@ import LoginPage from './pages/loginPage';
 import EsgPage from './pages/form/esgPage';
 import AdminPage from './pages/adminPage';
 import ProductPage from './pages/form/productPage';
+import ProducePage from './pages/form/producePage';
+import PickPage from './pages/form/pickPage';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,16 @@ const router = createBrowserRouter([
   {
     path: '/form_product',
     element: <ProductPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/form_produce',
+    element: <ProducePage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/form_pick',
+    element: <PickPage />,
     errorElement: <ErrorPage />,
   },
   {
