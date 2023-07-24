@@ -10,6 +10,7 @@ import SigninPage from './pages/signinPage';
 import LoginPage from './pages/loginPage';
 import EsgPage from './pages/form/esgPage';
 import AdminPage from './pages/adminPage';
+import ProductPage from './pages/form/productPage';
 
 const router = createBrowserRouter([
   {
@@ -21,9 +22,13 @@ const router = createBrowserRouter([
   { path: 'login', element: <LoginPage /> },
   { path: 'admin', element: <AdminPage /> },
   {
-    path: 'form/esg',
-
+    path: '/form_esg',
     element: <EsgPage />,
+  },
+  {
+    path: '/form_product',
+    element: <ProductPage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: 'contacts/:contactId',

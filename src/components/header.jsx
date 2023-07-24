@@ -14,6 +14,9 @@ import { Menu, Transition } from '@headlessui/react';
 import Example from './dropDown';
 import MenuDropdown from './dropDown';
 
+import { ReactComponent as Logo } from '../assets/img/logo.svg';
+import { Link } from 'react-router-dom';
+
 function MyDropdown() {
   return (
     <Menu>
@@ -49,8 +52,12 @@ function MyDropdown() {
 
 export default function Header() {
   return (
-    <div className='header flex justify-between min-w-[1300px] w-full h-[90px] px-40 py-5 absolute top-0'>
-      <h1 className='text-xl'>Eprime</h1>
+    <div className='header flex items-center justify-between min-w-[1450px] w-full h-[90px] px-40 py-5 absolute top-0'>
+      <Link to='/'>
+        <Logo className='text-xs' />
+        <h1 className='text-xl sr-only'>Eprime</h1>
+      </Link>
+
       <div className='flex w-[80%] justify-around'>
         <span className='sm:ml-3'>
           <button
@@ -112,7 +119,7 @@ export default function Header() {
           </button>
         </span>
       </div>
-      <div className='relative top-5 -left-10 w-56 text-right'>
+      <div className='relative top-[1.5px] -left-10 w-56 text-right'>
         <MenuDropdown />
       </div>
     </div>
