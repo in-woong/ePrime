@@ -1,4 +1,4 @@
-import Layout from '../../containers/layoutCotainer';
+import Layout from '../../../containers/layoutCotainer';
 
 export default function SmartFactoryPage() {
   return (
