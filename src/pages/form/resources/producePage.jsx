@@ -16,7 +16,7 @@ function Example() {
           <h2 className='text-base font-semibold leading-7 text-gray-900'>
             폐자원 거래 신청서 (재활용원료 - 재활용제품 생산단체)
           </h2>
-          <p className='mt-1 text-sm leading-6 text-gray-600'>상세설명</p>
+          {/* <p className='mt-1 text-sm leading-6 text-gray-600'>상세설명</p> */}
           <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
             <div className='sm:col-span-4'>
               <label
@@ -94,7 +94,7 @@ function Example() {
           <h2 className='text-base font-semibold leading-7 text-gray-900'>
             개인정보 및 연락처
           </h2>
-          <p className='mt-1 text-sm leading-6 text-gray-600'>상세설명</p>
+          {/* <p className='mt-1 text-sm leading-6 text-gray-600'>상세설명</p> */}
 
           <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
             <div className='sm:col-span-3'>
@@ -102,7 +102,7 @@ function Example() {
                 htmlFor='first-name'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
-                Name
+                이름
               </label>
               <div className='mt-2'>
                 <input
@@ -120,7 +120,7 @@ function Example() {
                 htmlFor='email'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
-                Email address
+                핸드폰
               </label>
               <div className='mt-2'>
                 <input
@@ -137,7 +137,7 @@ function Example() {
                 htmlFor='email'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
-                Phone Number
+                전화
               </label>
               <div className='mt-2'>
                 <input
@@ -304,9 +304,9 @@ function Example() {
                   defaultValue={''}
                 />
               </div>
-              <p className='mt-3 text-sm leading-6 text-gray-600'>
+              {/* <p className='mt-3 text-sm leading-6 text-gray-600'>
                 세부내용을 상세히 작성 바랍니다
-              </p>
+              </p> */}
             </div>
             <div className='sm:col-span-3 sm:col-start-1'>
               <label
@@ -380,9 +380,9 @@ function Example() {
                   defaultValue={''}
                 />
               </div>
-              <p className='mt-3 text-sm leading-6 text-gray-600'>
+              {/* <p className='mt-3 text-sm leading-6 text-gray-600'>
                 세부내용을 상세히 작성 바랍니다
-              </p>
+              </p> */}
             </div>
             <div className='col-span-full'>
               <label
@@ -400,9 +400,9 @@ function Example() {
                   defaultValue={''}
                 />
               </div>
-              <p className='mt-3 text-sm leading-6 text-gray-600'>
+              {/* <p className='mt-3 text-sm leading-6 text-gray-600'>
                 세부내용을 상세히 작성 바랍니다
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

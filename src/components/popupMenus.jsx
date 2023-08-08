@@ -15,19 +15,16 @@ export default function PopupMenus() {
         </li>
         <li className='flex justify-between items-center relative '>
           폐자원(Pellet, Flake 포함)을 사고 파는데 도움이 필요하신 분!
-          <div
-            to='/form_product'
-            className='group text-xl font-bold hover:text-gray-500'
-          >
+          <div className='group text-xl font-bold hover:text-gray-500'>
             Click
             <ul className='group absolute left-[calc(100%)] pl-5 w-full top-0 hidden font-bold text-sm text-red-500 group-hover:block'>
               <li>
-                <Link to='/form_produce'>
+                <Link to='/form_product'>
                   폐자원 거래 신청서(선별 - 재활용원료제조)
                 </Link>
               </li>
               <li>
-                <Link to='/form_product'>
+                <Link to='/form_produce'>
                   폐자원 거래 신청서(재활용 원료 - 재활용제품 생산단계)
                 </Link>
               </li>
