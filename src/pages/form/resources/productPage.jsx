@@ -16,7 +16,7 @@ function Example() {
           <h2 className='text-base font-semibold leading-7 text-gray-900'>
             폐자원 거래 신청서 (선별 - 재활용원료제조)
           </h2>
-          <p className='mt-1 text-sm leading-6 text-gray-600'>상세설명</p>
+          {/* <p className='mt-1 text-sm leading-6 text-gray-600'>상세설명</p> */}
 
           <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
             <div className='sm:col-span-4'>
@@ -130,7 +130,7 @@ function Example() {
           <h2 className='text-base font-semibold leading-7 text-gray-900'>
             개인정보 및 연락처
           </h2>
-          <p className='mt-1 text-sm leading-6 text-gray-600'>상세설명</p>
+          {/* <p className='mt-1 text-sm leading-6 text-gray-600'>상세설명</p> */}
 
           <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
             <div className='sm:col-span-3'>
@@ -138,7 +138,7 @@ function Example() {
                 htmlFor='first-name'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
-                Name
+                이름
               </label>
               <div className='mt-2'>
                 <input
@@ -156,7 +156,7 @@ function Example() {
                 htmlFor='email'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
-                Email address
+                핸드폰
               </label>
               <div className='mt-2'>
                 <input
@@ -173,7 +173,7 @@ function Example() {
                 htmlFor='email'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
-                Phone Number
+                전화
               </label>
               <div className='mt-2'>
                 <input
@@ -209,7 +209,7 @@ function Example() {
           <h2 className='text-base font-semibold leading-7 text-gray-900'>
             거래 조건 및 내용
           </h2>
-          <p className='mt-1 text-sm leading-6 text-gray-600'>상세 설명</p>
+          {/* <p className='mt-1 text-sm leading-6 text-gray-600'>상세 설명</p> */}
 
           <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
             <fieldset className='sm:col-span-4'>
@@ -329,7 +329,7 @@ function Example() {
                 htmlFor='about'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
-                현재 주거래 기업 수
+                품질평가이유?
               </label>
               <div className='mt-2'>
                 <textarea
@@ -340,9 +340,9 @@ function Example() {
                   defaultValue={''}
                 />
               </div>
-              <p className='mt-3 text-sm leading-6 text-gray-600'>
+              {/* <p className='mt-3 text-sm leading-6 text-gray-600'>
                 세부내용을 상세히 작성 바랍니다
-              </p>
+              </p> */}
             </div>
             <div className='sm:col-span-3 sm:col-start-1'>
               <label
@@ -452,29 +452,27 @@ function Example() {
                   defaultValue={''}
                 />
               </div>
-              <p className='mt-3 text-sm leading-6 text-gray-600'>
+              {/* <p className='mt-3 text-sm leading-6 text-gray-600'>
                 세부내용을 상세히 작성 바랍니다
-              </p>
+              </p> */}
             </div>
-            <div className='col-span-full'>
+            <div className='sm:col-span-4'>
               <label
                 htmlFor='about'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
                 현재 주거래 기업 수
               </label>
-              <div className='mt-2'>
-                <textarea
-                  id='about'
-                  name='about'
-                  rows={3}
-                  className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                  defaultValue={''}
-                />
-              </div>
-              <p className='mt-3 text-sm leading-6 text-gray-600'>
+              <input
+                type='text'
+                name='city'
+                id='city'
+                autoComplete='address-level2'
+                className='block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+              />
+              {/* <p className='mt-3 text-sm leading-6 text-gray-600'>
                 세부내용을 상세히 작성 바랍니다
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
