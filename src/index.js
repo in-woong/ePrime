@@ -2,17 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Root from './routes/root';
 import ErrorPage from './pages/errorPage';
 import Contact from './routes/contact';
 import MainPage from './pages/mainPage';
 import SigninPage from './pages/signinPage';
 import LoginPage from './pages/loginPage';
-import EsgPage from './pages/form/esgPage';
+import EsgPage from './pages/form/esg/esgPage';
 import AdminPage from './pages/adminPage';
-import ProductPage from './pages/form/productPage';
-import ProducePage from './pages/form/producePage';
-import PickPage from './pages/form/pickPage';
+import ProductPage from './pages/form/resources/productPage';
+import ProducePage from './pages/form/resources/producePage';
+import PickPage from './pages/form/resources/pickPage';
+import SmartFactoryPage from './pages/form/factory/smartFactoryPage';
+import EtcPage from './pages/form/etc/etcPage';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,16 @@ const router = createBrowserRouter([
   {
     path: '/form_pick',
     element: <PickPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/form_factory',
+    element: <SmartFactoryPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/form_etc',
+    element: <EtcPage />,
     errorElement: <ErrorPage />,
   },
   {
