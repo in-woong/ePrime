@@ -5,10 +5,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './pages/errorPage';
 import Contact from './routes/contact';
 import MainPage from './pages/mainPage';
-import SigninPage from './pages/signinPage';
 import LoginPage from './pages/loginPage';
 import EsgPage from './pages/form/esg/esgPage';
-import AdminPage from './pages/adminPage';
+import AdminPage from './pages/admin/adminPage';
 import ProductPage from './pages/form/resources/productPage';
 import ProducePage from './pages/form/resources/producePage';
 import PickPage from './pages/form/resources/pickPage';
@@ -21,9 +20,8 @@ const router = createBrowserRouter([
     element: <MainPage />,
     errorElement: <ErrorPage />,
   },
-  { path: 'signin', element: <SigninPage /> },
-  { path: 'login', element: <LoginPage /> },
-  { path: 'admin', element: <AdminPage /> },
+  { path: '/login', element: <LoginPage /> },
+  { path: '/admin', element: <AdminPage /> },
   {
     path: '/form_esg',
     element: <EsgPage />,

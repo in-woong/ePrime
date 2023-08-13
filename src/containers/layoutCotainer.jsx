@@ -7,7 +7,7 @@ export default function Layout({ children }) {
     <>
       <Header />
       <ScrollTop />
-      <div className='pt-[90px] pb-[10px] min-h-full min-w-[1400px] flex flex-col justify-center items-center'>
+      <div className='pt-[90px] pb-[10px]   flex flex-col justify-center items-center'>
         {children}
       </div>
       <Footer />
