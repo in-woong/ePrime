@@ -17,10 +17,17 @@ function Example() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({ defaultValues: { recordType: 'esg' } });
+
   const onSubmit = (data) => {
-    // axios.post("")
-    console.log(data);
+    axios
+      .post('/record', data, {
+        headars: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -152,7 +159,7 @@ function Example() {
                 htmlFor='email'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
-                핸드폰
+                휴대폰
               </label>
               <div className='mt-2'>
                 <input

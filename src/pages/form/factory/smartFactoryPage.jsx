@@ -17,12 +17,18 @@ function Example() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => {
-    // axios.post("")
-    console.log(data);
-  };
+  } = useForm({ defaultValues: { recordType: 'smartFactory' } });
 
+  const onSubmit = (data) => {
+    axios
+      .post('/record', data, {
+        headars: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  };
   return (
     <form className='w-[50%] my-5' onSubmit={handleSubmit(onSubmit)}>
       <div className='space-y-12'>
