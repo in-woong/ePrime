@@ -1,6 +1,7 @@
 {
   "name": "eprime",
   "version": "0.1.0",
+  "proxy": "http://e-prime.ap-northeast-2.elasticbeanstalk.com",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -12,6 +13,7 @@
     "axios": "^1.4.0",
     "headlessui": "^0.0.0",
     "heroicons": "^2.0.18",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.4",

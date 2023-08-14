@@ -52,13 +52,13 @@ function MyDropdown() {
 
 export default function Header() {
   return (
-    <div className='header flex items-center justify-between  w-full h-[90px] px-40 py-5 absolute top-0'>
+    <div className='header flex items-center justify-between  w-full min-w-[1350px] h-[90px] px-40 py-5 absolute top-0'>
       <Link to='/'>
-        <Logo className='text-xs' />
+        <Logo className='text-[15px]' />
         <h1 className='text-xl sr-only'>Eprime</h1>
       </Link>
 
-      <div className='flex w-[80%] justify-around'>
+      <div className='flex w-[80%] justify-around invisible lg:visible'>
         <span className='sm:ml-3'>
           <button
             type='button'
