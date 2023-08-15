@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Logo from '../assets/img/logo.svg';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { ErrorMessage } from '@hookform/error-message';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
   return <Example />;
 }
+
 function Example() {
+  const navigate = useNavigate();
+  const { state } = useLocation();
   const {
     register,
     handleSubmit,
@@ -24,14 +28,24 @@ function Example() {
         },
       })
       .then((res) => {
-        console.log('token', res.data.token);
+        console.log('token', res.data.token, state);
         localStorage.setItem('key', res.data.token);
+
+        if (res.data.token) {
+          navigate('/admin');
+        }
       })
       .catch((error) => {
         setError(error);
       });
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem('key');
+    if (token) {
+      navigate('/admin');
+    }
+  }, [navigate]);
   return (
     <>
       <div className='flex min-h-full flex-1 flex-col justify-center my-auto px-6 lg:px-8'>
