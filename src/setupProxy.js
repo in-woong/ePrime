@@ -5,6 +5,10 @@ module.exports = function (app) {
     createProxyMiddleware('/record', {
       target: 'http://e-prime.ap-northeast-2.elasticbeanstalk.com',
       changeOrigin: true,
+    }),
+    createProxyMiddleware('/cms', {
+      target: 'http://e-prime.ap-northeast-2.elasticbeanstalk.com',
+      changeOrigin: true,
     })
   );
 };

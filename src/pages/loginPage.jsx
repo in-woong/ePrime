@@ -1,6 +1,9 @@
 import React from 'react';
 import Logo from '../assets/img/logo.svg';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { ErrorMessage } from '@hookform/error-message';
+
 export default function LoginPage() {
   return <Example />;
 }
@@ -8,11 +11,25 @@ function Example() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
+    setError,
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    axios
+      .post('/cms/login', data, {
+        headars: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => {
+        console.log('token', res.data.token);
+        localStorage.setItem('key', res.data.token);
+      })
+      .catch((error) => {
+        setError(error);
+      });
   };
 
   return (
@@ -29,14 +46,14 @@ function Example() {
                 htmlFor='email'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
-                ID
+                Email
               </label>
               <div className='mt-2'>
                 <input
-                  id='id'
-                  {...register('id')}
-                  type='id'
-                  autoComplete='id'
+                  id='email'
+                  {...register('email')}
+                  type='email'
+                  autoComplete='email'
                   required
                   className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                 />
@@ -64,14 +81,13 @@ function Example() {
               </div>
             </div>
 
-            <div>
-              <button
-                type='submit'
-                className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-              >
-                Log In
-              </button>
-            </div>
+            <button
+              type='submit'
+              className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+            >
+              Log In
+            </button>
+            {/* <ErrorMessage errors={errors} name='singleErrorInput' /> */}
           </form>
         </div>
       </div>
