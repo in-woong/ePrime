@@ -7,7 +7,8 @@ import {
 } from '@heroicons/react/20/solid';
 import { Menu } from '@headlessui/react';
 import { ReactComponent as Logo } from '../assets/img/logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 // function MyDropdown() {
 //   return (
@@ -43,6 +44,21 @@ import { Link } from 'react-router-dom';
 // }
 
 export default function Header() {
+  const [token, setToken] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const item = localStorage.getItem('key');
+
+    if (item) {
+      setToken(item);
+    }
+  }, [token]);
+
+  const onBtnClick = () => {
+    localStorage.removeItem('key');
+    navigate('/');
+  };
   return (
     <div className='header min-w-[1250px] flex items-center justify-between  w-full h-[90px] px-40 py-5 absolute top-0'>
       <Link to='/'>
@@ -91,26 +107,40 @@ export default function Header() {
           </button>
         </span>
       </div>
+      {!token ? (
+        <div className='flex'>
+          <span className='sm:ml-3'>
+            <button
+              type='button'
+              className='inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-500'
+            >
+              KOR
+            </button>
+          </span>
 
-      <div className='flex'>
-        <span className='sm:ml-3'>
-          <button
-            type='button'
-            className='inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-500'
-          >
-            KOR
-          </button>
-        </span>
+          <span className='sm:ml-3 '>
+            <button
+              type='button'
+              className='inline-flex items-center rounded-md bg-white w-10 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'
+            >
+              <MagnifyingGlassIcon className=' h-5 w-5' aria-hidden='true' />
+            </button>
+          </span>
+        </div>
+      ) : (
+        <div className='flex'>
+          <span className='sm:ml-6'>
+            <button
+              onClick={onBtnClick}
+              type='button'
+              className='inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-500'
+            >
+              LogOut
+            </button>
+          </span>
+        </div>
+      )}
 
-        <span className='sm:ml-3 '>
-          <button
-            type='button'
-            className='inline-flex items-center rounded-md bg-white w-10 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'
-          >
-            <MagnifyingGlassIcon className=' h-5 w-5' aria-hidden='true' />
-          </button>
-        </span>
-      </div>
       {/* <div className='relative top-[1.5px] -left-10 w-56 text-right'>
         <MenuDropdown />
       </div> */}
