@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import Logo from '../assets/img/logo.svg';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { ErrorMessage } from '@hookform/error-message';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
   return <Example />;
@@ -11,7 +10,7 @@ export default function LoginPage() {
 
 function Example() {
   const navigate = useNavigate();
-  const { state } = useLocation();
+
   const {
     register,
     handleSubmit,
@@ -23,12 +22,11 @@ function Example() {
   const onSubmit = (data) => {
     axios
       .post('/cms/login', data, {
-        headars: {
+        headers: {
           'Content-Type': 'application/json',
         },
       })
       .then((res) => {
-        console.log('token', res.data.token, state);
         localStorage.setItem('key', res.data.token);
 
         if (res.data.token) {
