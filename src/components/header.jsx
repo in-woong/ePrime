@@ -1,58 +1,50 @@
-import { Fragment } from 'react';
 import {
   BriefcaseIcon,
-  CalendarIcon,
   CheckIcon,
-  ChevronDownIcon,
-  CurrencyDollarIcon,
   LinkIcon,
-  MapPinIcon,
   PencilIcon,
   MagnifyingGlassIcon,
 } from '@heroicons/react/20/solid';
-import { Menu, Transition } from '@headlessui/react';
-import Example from './dropDown';
-import MenuDropdown from './dropDown';
-
+import { Menu } from '@headlessui/react';
 import { ReactComponent as Logo } from '../assets/img/logo.svg';
 import { Link } from 'react-router-dom';
 
-function MyDropdown() {
-  return (
-    <Menu>
-      <Menu.Button>More</Menu.Button>
-      <Menu.Items>
-        <Menu.Item>
-          {({ active }) => (
-            <a
-              className={`${active && 'bg-blue-500'}`}
-              href='/account-settings'
-            >
-              Account settings
-            </a>
-          )}
-        </Menu.Item>
-        <Menu.Item>
-          {({ active }) => (
-            <a
-              className={`${active && 'bg-blue-500'}`}
-              href='/account-settings'
-            >
-              Documentation
-            </a>
-          )}
-        </Menu.Item>
-        <Menu.Item disabled>
-          <span className='opacity-75'>Invite a friend (coming soon!)</span>
-        </Menu.Item>
-      </Menu.Items>
-    </Menu>
-  );
-}
+// function MyDropdown() {
+//   return (
+//     <Menu>
+//       <Menu.Button>More</Menu.Button>
+//       <Menu.Items>
+//         <Menu.Item>
+//           {({ active }) => (
+//             <a
+//               className={`${active && 'bg-blue-500'}`}
+//               href='/account-settings'
+//             >
+//               Account settings
+//             </a>
+//           )}
+//         </Menu.Item>
+//         <Menu.Item>
+//           {({ active }) => (
+//             <a
+//               className={`${active && 'bg-blue-500'}`}
+//               href='/account-settings'
+//             >
+//               Documentation
+//             </a>
+//           )}
+//         </Menu.Item>
+//         <Menu.Item disabled>
+//           <span className='opacity-75'>Invite a friend (coming soon!)</span>
+//         </Menu.Item>
+//       </Menu.Items>
+//     </Menu>
+//   );
+// }
 
 export default function Header() {
   return (
-    <div className='header flex items-center justify-between  w-full min-w-[1350px] h-[90px] px-40 py-5 absolute top-0'>
+    <div className='header min-w-[1250px] flex items-center justify-between  w-full h-[90px] px-40 py-5 absolute top-0'>
       <Link to='/'>
         <Logo className='text-[15px]' />
         <h1 className='text-xl sr-only'>Eprime</h1>
@@ -119,9 +111,9 @@ export default function Header() {
           </button>
         </span>
       </div>
-      <div className='relative top-[1.5px] -left-10 w-56 text-right'>
+      {/* <div className='relative top-[1.5px] -left-10 w-56 text-right'>
         <MenuDropdown />
-      </div>
+      </div> */}
     </div>
   );
 }

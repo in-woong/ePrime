@@ -1,42 +1,37 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import axios from 'axios';
-import Layout from '../../../containers/layoutCotainer';
-import { useNavigate } from 'react-router-dom';
+import Layout from '../../../../containers/adminLayoutContainer';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-export default function ProductPage() {
+export default function AdminProductPage() {
+  const location = useLocation();
+  console.log(location.state);
   return (
     <Layout>
-      <Example />
+      <Example {...location.state} />
     </Layout>
   );
 }
 
-function Example() {
+function Example({
+  address,
+  company,
+  contact = { 성명: '', 휴대폰: '', 전화: '', fax: '' },
+  name,
+  price,
+  sector,
+  resourcesStatus,
+  transitAmount,
+  statusReason,
+  transactionType,
+  transactionOpinion,
+  tradingCompanyCount,
+  duration,
+  totalResourceAmount,
+}) {
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm({
-    defaultValues: { recordType: 'makeMaterials' },
-  });
 
-  const onSubmit = (data) => {
-    axios
-      .post('/record', data, {
-        headars: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .then((res) => {
-        if (res.data.success) {
-          alert('제출 완료되었습니다.');
-          navigate('/');
-        } else {
-          alert('다시 시도해주세요');
-        }
-      })
-      .catch((error) => alert(error));
-  };
   return (
-    <form className='w-[50%] my-5' onSubmit={handleSubmit(onSubmit)}>
+    <form className='w-[50%] my-5'>
       <div className='space-y-12'>
         <div className='border-b border-gray-900/10 pb-12'>
           <h2 className='text-base font-semibold leading-7 text-gray-900'>
@@ -57,7 +52,8 @@ function Example() {
                     NAME
                   </span>
                   <input
-                    {...register('company')}
+                    disabled
+                    value={company}
                     type='text'
                     id='company'
                     autoComplete='company'
@@ -80,7 +76,8 @@ function Example() {
                   </span>
                   <input
                     type='text'
-                    {...register('address')}
+                    disabled
+                    value={address}
                     id='address'
                     autoComplete='address'
                     className='block focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
@@ -102,7 +99,8 @@ function Example() {
                   </span>
                   <input
                     type='text'
-                    {...register('name')}
+                    disabled
+                    value={name}
                     id='name'
                     autoComplete='name'
                     className='block focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
@@ -124,7 +122,8 @@ function Example() {
                   </span>
                   <input
                     type='text'
-                    {...register('sector')}
+                    disabled
+                    value={sector}
                     id='sector'
                     autoComplete='sector'
                     className='block focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
@@ -153,7 +152,8 @@ function Example() {
               <div className='mt-2'>
                 <input
                   type='text'
-                  {...register('contact.성명')}
+                  disabled
+                  value={contact.성명}
                   id='contact-name'
                   className='block w-full rounded-md border-0  p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                 />
@@ -162,14 +162,15 @@ function Example() {
 
             <div className='sm:col-span-3'>
               <label
-                htmlFor='email'
+                htmlFor='contact_number'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
                 핸드폰
               </label>
               <div className='mt-2'>
                 <input
-                  {...register('contact.휴대폰')}
+                  disabled
+                  value={contact.휴대폰}
                   id='contact_number'
                   type='text'
                   autoComplete='email'
@@ -187,7 +188,8 @@ function Example() {
               <div className='mt-2'>
                 <input
                   id='contact_phone'
-                  {...register('contact.전화')}
+                  disabled
+                  value={contact.전화}
                   type='contact_phone'
                   className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                 />
@@ -204,7 +206,8 @@ function Example() {
                 <input
                   id='contact_fax'
                   type='text'
-                  {...register('contact.fax')}
+                  disabled
+                  value={contact.fax}
                   className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                 />
               </div>
@@ -228,7 +231,8 @@ function Example() {
                   <input
                     id='field-buy'
                     value='buy'
-                    {...register('transactionType')}
+                    disabled
+                    checked={transactionType === 'buy' ? true : false}
                     type='radio'
                     className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
                   />
@@ -243,7 +247,8 @@ function Example() {
                   <input
                     id='field-sell'
                     value='sell'
-                    {...register('transactionType')}
+                    disabled
+                    checked={transactionType === 'sell' ? true : false}
                     type='radio'
                     className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
                   />
@@ -264,7 +269,8 @@ function Example() {
                 <div className='flex items-center gap-x-3'>
                   <input
                     id='field-5'
-                    {...register('resourcesStatus')}
+                    disabled
+                    chekced={resourcesStatus == '5' ? true : false}
                     value='5'
                     type='radio'
                     className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
@@ -279,7 +285,8 @@ function Example() {
                 <div className='flex items-center gap-x-3'>
                   <input
                     id='field-4'
-                    {...register('resourcesStatus')}
+                    disabled
+                    chekced={resourcesStatus == '4' ? true : false}
                     value='4'
                     type='radio'
                     className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
@@ -294,7 +301,8 @@ function Example() {
                 <div className='flex items-center gap-x-3'>
                   <input
                     id='field-3'
-                    {...register('resourcesStatus')}
+                    disabled
+                    chekced={resourcesStatus == '3' ? true : false}
                     value='3'
                     type='radio'
                     className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
@@ -309,7 +317,8 @@ function Example() {
                 <div className='flex items-center gap-x-3'>
                   <input
                     id='field-2'
-                    {...register('resourcesStatus')}
+                    disabled
+                    chekced={resourcesStatus == '2' ? true : false}
                     value='2'
                     type='radio'
                     className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
@@ -324,7 +333,8 @@ function Example() {
                 <div className='flex items-center gap-x-3'>
                   <input
                     id='field-1'
-                    {...register('resourcesStatus')}
+                    disabled
+                    chekced={resourcesStatus == '1' ? true : false}
                     value='1'
                     type='radio'
                     className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
@@ -348,7 +358,8 @@ function Example() {
               <div className='mt-2'>
                 <textarea
                   id='statusReason'
-                  {...register('statusReason')}
+                  disabled
+                  value={statusReason}
                   rows={3}
                   className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                   defaultValue={''}
@@ -368,7 +379,8 @@ function Example() {
               <div className='mt-2'>
                 <input
                   type='text'
-                  {...register('transitAmount')}
+                  disabled
+                  value={transitAmount}
                   id='transitAmount'
                   autoComplete='address-level2'
                   placeholder='주 000톤(ton)'
@@ -388,7 +400,8 @@ function Example() {
                 <input
                   type='text'
                   name='transitAmount'
-                  {...register('transitAmount')}
+                  disabled
+                  value={transitAmount}
                   id='transitAmount'
                   autoComplete='address-level1'
                   placeholder='주 00회 (25톤 기준)'
@@ -406,7 +419,8 @@ function Example() {
               <div className='mt-2'>
                 <input
                   type='text'
-                  {...register('price')}
+                  disabled
+                  value={price}
                   id='price'
                   placeholder='000원 / Kg'
                   className='block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
@@ -423,7 +437,8 @@ function Example() {
               <div className='mt-2'>
                 <input
                   type='text'
-                  {...register('totalResourceAmount')}
+                  disabled
+                  value={totalResourceAmount}
                   id='totalResourceAmount'
                   placeholder='000 톤 / 년 (일, 월)'
                   className='block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
@@ -440,7 +455,8 @@ function Example() {
               <div className='mt-2'>
                 <input
                   type='text'
-                  {...register('duration')}
+                  disabled
+                  value={duration}
                   id='duration'
                   autoComplete='postal-code'
                   placeholder='00 일 (월, 년)'
@@ -457,10 +473,10 @@ function Example() {
                 거래시 하고 싶은 의견
               </label>
               <div className='mt-2'>
-                <textarea
+                <input
                   id='transactionOpinion'
-                  {...register('transactionOpinion')}
-                  rows={3}
+                  disabled
+                  value={transactionOpinion}
                   className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                 />
               </div>
@@ -477,7 +493,8 @@ function Example() {
               </label>
               <input
                 type='text'
-                {...register('tradingCompanyCount')}
+                disabled
+                value={tradingCompanyCount}
                 id='tradingCompanyCount'
                 className='block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
               />
@@ -496,12 +513,6 @@ function Example() {
           className='text-sm font-semibold leading-6 text-gray-900'
         >
           이전
-        </button>
-        <button
-          type='submit'
-          className='rounded-md bg-cyan-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600'
-        >
-          제출하기
         </button>
       </div>
     </form>

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './pages/errorPage';
-import Contact from './routes/contact';
 import MainPage from './pages/mainPage';
 import LoginPage from './pages/loginPage';
 import EsgPage from './pages/form/esg/esgPage';
@@ -13,6 +12,15 @@ import ProducePage from './pages/form/resources/producePage';
 import PickPage from './pages/form/resources/pickPage';
 import SmartFactoryPage from './pages/form/factory/smartFactoryPage';
 import EtcPage from './pages/form/etc/etcPage';
+import AddNews from './pages/admin/form/news/addNews';
+import AdminEsgPage from './pages/admin/form/esg/esgPage';
+import AdminEtcPage from './pages/admin/form/etc/etcPage';
+import AdminPickPage from './pages/admin/form/resources/pickPage';
+import AdminProducePage from './pages/admin/form/resources/producePage';
+import AdminProductPage from './pages/admin/form/resources/productPage';
+import AdminSmartFactoryPage from './pages/admin/form/factory/smartFactoryPage';
+import ProductListPage from './pages/admin/form/resources/ProductListPage';
+import ListPage from './pages/listPage';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +29,40 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   { path: '/login', element: <LoginPage /> },
-  { path: '/admin', element: <AdminPage /> },
+  {
+    path: '/admin',
+
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <AdminPage /> },
+      {
+        path: '/admin/form_product/:id',
+        element: <AdminProductPage />,
+      },
+      {
+        path: '/admin/form_pick/:id',
+        element: <AdminPickPage />,
+      },
+      {
+        path: '/admin/form_smartFactory/:id',
+        element: <AdminSmartFactoryPage />,
+      },
+      {
+        path: '/admin/form_etc/:id',
+        element: <AdminEtcPage />,
+      },
+      {
+        path: '/admin/form_esg/:id',
+        element: <AdminEsgPage />,
+      },
+      {
+        path: '/admin/form_produce/:id',
+        element: <AdminProducePage />,
+      },
+      { path: '/admin/list_product', element: <ProductListPage /> },
+    ],
+  },
+  { path: '/list/:titleId', element: <ListPage /> },
   {
     path: '/form_esg',
     element: <EsgPage />,
@@ -52,8 +93,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: 'contacts/:contactId',
-    element: <Contact />,
+    path: '/addNews',
+    element: <AddNews />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));

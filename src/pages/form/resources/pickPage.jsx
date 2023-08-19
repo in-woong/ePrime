@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Layout from '../../../containers/layoutCotainer';
+import { useNavigate } from 'react-router-dom';
 
 export default function PickPage() {
   return (
@@ -12,12 +13,10 @@ export default function PickPage() {
 }
 
 function Example() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm({ defaultValues: { recordType: 'wholeSale' } });
+  const navigate = useNavigate();
+  const { register, handleSubmit } = useForm({
+    defaultValues: { recordType: 'wholeSale' },
+  });
 
   const onSubmit = (data) => {
     axios
@@ -26,8 +25,15 @@ function Example() {
           'Content-Type': 'application/json',
         },
       })
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+      .then((res) => {
+        if (res.data.success) {
+          alert('제출 완료되었습니다.');
+          navigate('/');
+        } else {
+          alert('다시 시도해주세요');
+        }
+      })
+      .catch((error) => alert(error));
   };
   return (
     <form className='w-[50%] my-5' onSubmit={handleSubmit(onSubmit)}>
@@ -127,7 +133,7 @@ function Example() {
                   type='text'
                   {...register('contact.성명')}
                   id='contact-name'
-                  className='block w-full rounded-md border-0  p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  className='block w-full rounded-md border-0  p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                 />
               </div>
             </div>
@@ -145,7 +151,7 @@ function Example() {
                   id='contact_number'
                   type='text'
                   autoComplete='email'
-                  className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                 />
               </div>
             </div>
@@ -161,7 +167,7 @@ function Example() {
                   id='contact_phone'
                   {...register('contact.전화')}
                   type='contact_phone'
-                  className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                 />
               </div>
             </div>
@@ -177,7 +183,7 @@ function Example() {
                   id='contact_fax'
                   type='text'
                   {...register('contact.fax')}
-                  className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                 />
               </div>
             </div>
@@ -202,7 +208,7 @@ function Example() {
                     {...register('resourcesStatus')}
                     value='4'
                     type='radio'
-                    className='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
+                    className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
                   />
                   <label
                     htmlFor='push-everything'
@@ -217,7 +223,7 @@ function Example() {
                     {...register('resourcesStatus')}
                     value='3'
                     type='radio'
-                    className='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
+                    className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
                   />
                   <label
                     htmlFor='push-email'
@@ -233,7 +239,7 @@ function Example() {
                     {...register('resourcesStatus')}
                     value='2'
                     type='radio'
-                    className='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
+                    className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
                   />
                   <label
                     htmlFor='push-nothing'
@@ -248,7 +254,7 @@ function Example() {
                     {...register('resourcesStatus')}
                     value='1'
                     type='radio'
-                    className='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
+                    className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
                   />
                   <label
                     htmlFor='push-nothing'
@@ -272,7 +278,7 @@ function Example() {
                   id='statusReason'
                   {...register('statusReason')}
                   rows={3}
-                  className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                   defaultValue={''}
                 />
               </div>
@@ -294,7 +300,7 @@ function Example() {
                   id='resourceAmount'
                   autoComplete='resourceAmount'
                   placeholder='주 000톤(ton)'
-                  className='block w-full px-2 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  className='block w-full px-2 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                 />
               </div>
             </div>
@@ -313,7 +319,7 @@ function Example() {
                   id='transitAmount'
                   autoComplete='transitAmount'
                   placeholder='주 00회 (25톤 기준)'
-                  className='block w-full px-2 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  className='block w-full px-2 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                 />
               </div>
             </div>
@@ -331,7 +337,7 @@ function Example() {
                   id='price'
                   autoComplete='price'
                   placeholder='000원 / Kg'
-                  className='block w-full px-2 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  className='block w-full px-2 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                 />
               </div>
             </div>
@@ -349,7 +355,7 @@ function Example() {
                   {...register('transactionOpinion')}
                   autoComplete='transactionOpinion'
                   rows={3}
-                  className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  className='block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                 />
               </div>
               {/* <p className='mt-3 text-sm leading-6 text-gray-600'>
@@ -362,16 +368,17 @@ function Example() {
 
       <div className='mt-6 flex items-center justify-end gap-x-6'>
         <button
+          onClick={() => navigate(-1)}
           type='button'
           className='text-sm font-semibold leading-6 text-gray-900'
         >
-          Cancel
+          이전
         </button>
         <button
           type='submit'
-          className='rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+          className='rounded-md bg-cyan-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600'
         >
-          Save
+          제출하기
         </button>
       </div>
     </form>

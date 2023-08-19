@@ -1,8 +1,12 @@
-export default function List({ title, key }) {
+import { Link } from 'react-router-dom';
+
+export default function List({ title, id, url = '/', data }) {
   return (
-    <li className='flex w-[60%] justify-between' key={key}>
+    <li className='flex w-full justify-between' key={id}>
       <span>{title}</span>
-      <button>바로가기</button>
+      <Link to={url} state={data}>
+        바로가기
+      </Link>
     </li>
   );
 }
