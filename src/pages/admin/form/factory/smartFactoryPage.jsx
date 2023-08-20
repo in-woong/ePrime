@@ -16,6 +16,7 @@ function Example({
   address,
   company,
   contact = { 성명: '', 휴대폰: '', 전화: '', fax: '' },
+  totalRevenue = { 2020: 0, 2021: 0, 2022: 0, 2023: 0 },
   name,
   price,
   resourceAmount,
@@ -25,6 +26,8 @@ function Example({
   totalResourceAmount,
   transactionOpinion,
   transitAmount,
+  employeesCount,
+  isRegistration,
 }) {
   const navigate = useNavigate();
 
@@ -125,6 +128,125 @@ function Example({
                     id='sector'
                     autoComplete='sector'
                     className='block focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                  />
+                </div>
+              </div>
+              <div className='sm:col-span-full'>
+                <label
+                  htmlFor='username'
+                  className='block text-sm font-medium leading-6 text-gray-900'
+                >
+                  총매출액
+                </label>
+                <div className='mt-2 grid grid-cols-4'>
+                  <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2'>
+                    <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                      2020
+                    </span>
+                    <input
+                      type='text'
+                      value={totalRevenue[2020]}
+                      disabled
+                      id='totalRevenue_2020'
+                      autoComplete='totalRevenue'
+                      className='block focus:outline-none  border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                    />
+                  </div>
+                  <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 '>
+                    <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                      2021
+                    </span>
+                    <input
+                      type='text'
+                      value={totalRevenue[2021]}
+                      disabled
+                      id='totalRevenue_2021'
+                      autoComplete='totalRevenue'
+                      className='block focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                    />
+                  </div>
+                  <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2  '>
+                    <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                      2022
+                    </span>
+                    <input
+                      type='text'
+                      value={totalRevenue[2022]}
+                      disabled
+                      id='totalRevenue_2022'
+                      autoComplete='totalRevenue'
+                      className='block focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                    />
+                  </div>
+                  <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 '>
+                    <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                      2023
+                    </span>
+                    <input
+                      type='text'
+                      value={totalRevenue[2023]}
+                      disabled
+                      id='totalRevenue_2023'
+                      autoComplete='totalRevenue'
+                      className='block focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                    />
+                  </div>
+                </div>
+              </div>
+              <fieldset className='sm:col-span-4'>
+                <legend className='text-sm font-semibold leading-6 text-gray-900'>
+                  공장 등록증(유/무)
+                </legend>
+                <div className='mt-4 flex flex-cols items-center space-x-6'>
+                  <div className='flex items-center gap-x-3'>
+                    <input
+                      id='isRegistration-true'
+                      value='true'
+                      checked={isRegistration == 'true' ? true : false}
+                      disabled
+                      type='radio'
+                      className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
+                    />
+                    <label
+                      htmlFor='push-everything'
+                      className='block text-sm font-medium leading-6 text-gray-900'
+                    >
+                      유
+                    </label>
+                  </div>
+                  <div className='flex items-center gap-x-3'>
+                    <input
+                      id='isRegistration-false'
+                      value='false'
+                      checked={isRegistration == 'false' ? true : false}
+                      disabled
+                      type='radio'
+                      className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
+                    />
+                    <label
+                      htmlFor='push-email'
+                      className='block text-sm font-medium leading-6 text-gray-900'
+                    >
+                      무
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+              <div className='sm:col-span-2 sm:col-start-1'>
+                <label
+                  htmlFor='employeesCount'
+                  className='block text-sm font-medium leading-6 text-gray-900'
+                >
+                  종업원 수
+                </label>
+                <div className='mt-2'>
+                  <input
+                    type='text'
+                    value={employeesCount}
+                    disabled
+                    id='employeesCount'
+                    autoComplete='employeesCount'
+                    className='block w-full px-2 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
                   />
                 </div>
               </div>

@@ -1,8 +1,9 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import axios from 'axios';
 import Layout from '../../../containers/layoutCotainer';
 import { useNavigate } from 'react-router-dom';
+import ReactSelect from 'react-select';
 
 export default function ProductPage() {
   return (
@@ -14,7 +15,7 @@ export default function ProductPage() {
 
 function Example() {
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, control } = useForm({
     defaultValues: { recordType: 'makeMaterials' },
   });
 
@@ -110,28 +111,43 @@ function Example() {
                 </div>
               </div>
             </div>
-            <div className='sm:col-span-4'>
-              <label
-                htmlFor='username'
-                className='block text-sm font-medium leading-6 text-gray-900'
-              >
+            <fieldset className='sm:col-span-4'>
+              <legend className='text-sm font-semibold leading-6 text-gray-900'>
                 업종
-              </label>
-              <div className='mt-2'>
-                <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2  sm:max-w-md'>
-                  <span className='flex select-none items-center pl-3 text-gray-500 sm:text-sm'>
-                    업종
-                  </span>
+              </legend>
+              <div className='mt-4 flex flex-cols items-center space-x-6'>
+                <div className='flex items-center gap-x-3'>
                   <input
-                    type='text'
+                    id='sector-true'
+                    value='true'
                     {...register('sector')}
-                    id='sector'
-                    autoComplete='sector'
-                    className='block focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                    type='radio'
+                    className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
                   />
+                  <label
+                    htmlFor='sector-true'
+                    className='block text-sm font-medium leading-6 text-gray-900'
+                  >
+                    회수선별
+                  </label>
+                </div>
+                <div className='flex items-center gap-x-3'>
+                  <input
+                    id='sector-false'
+                    value='false'
+                    {...register('sector')}
+                    type='radio'
+                    className='h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600'
+                  />
+                  <label
+                    htmlFor='sector-false'
+                    className='block text-sm font-medium leading-6 text-gray-900'
+                  >
+                    펠렛, 플레이크 등 재활용원료 제조
+                  </label>
                 </div>
               </div>
-            </div>
+            </fieldset>
           </div>
         </div>
 
@@ -219,6 +235,50 @@ function Example() {
           {/* <p className='mt-1 text-sm leading-6 text-gray-600'>상세 설명</p> */}
 
           <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            <div className='sm:col-span-4'>
+              <label
+                htmlFor='about'
+                className='block text-sm font-medium leading-6 text-gray-900'
+              >
+                폐자원종류
+              </label>
+              <Controller
+                {...register('wasteResourceType')}
+                name='ReactSelect'
+                control={control}
+                render={({ field }) => (
+                  <ReactSelect
+                    {...field}
+                    options={[
+                      { value: '폐비닐-미분쇄', label: '폐비닐-미분쇄' },
+                      { value: '폐비닐-분쇄품', label: '폐비닐-분쇄품' },
+                      {
+                        value: 'PE(선별품)-미분쇄',
+                        label: 'PE(선별품)-미분쇄',
+                      },
+                      { value: 'PE(선별품)-분쇄', label: 'PE(선별품)-분쇄' },
+                      {
+                        value: 'PP(선별품)-미분쇄',
+                        label: 'PP(선별품)-미분쇄',
+                      },
+                      { value: 'PP(선별품)-분쇄', label: 'PP(선별품)-분쇄' },
+                      {
+                        value: 'Pet(선별품)-미분쇄',
+                        label: 'Pet(선별품)-미분쇄',
+                      },
+                      { value: 'ABS(선별품)-분쇄', label: 'ABS(선별품)-분쇄' },
+                      { value: 'PS-ps', label: 'PS-ps' },
+                      { value: '폐유리-선별품', label: '폐유리-선별품' },
+                      { value: '금속캔-선별품', label: '금속캔-선별품' },
+                      { value: '종이팩-선별품', label: '종이팩-선별품' },
+                      { value: '폐지-선별품', label: '폐지-선별품' },
+                      { value: 'ABS-선별품', label: 'ABS-선별품' },
+                      { value: '기타', label: '기타' },
+                    ]}
+                  />
+                )}
+              />
+            </div>
             <fieldset className='sm:col-span-4'>
               <legend className='text-sm font-semibold leading-6 text-gray-900'>
                 거래 형태

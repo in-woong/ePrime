@@ -195,6 +195,86 @@ function Example() {
             재활용 제품 종류
           </h2>
           {/* <p className='mt-1 tex류-sm leading-6 text-gray-600'>상세 설명</p> */}
+          <div className='sm:col-span-full'>
+            <div className='mt-2 grid grid-cols-2'>
+              <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2'>
+                <span className='flex select-none items-center pl-3 text-gray-500 sm:text-sm'>
+                  규격1
+                </span>
+                <input
+                  type='text'
+                  {...register('wasteResourceTypeOne.name')}
+                  id='wasteResourceTypeOne_name'
+                  autoComplete='wasteResourceType_name'
+                  className='block flex-1 px-2 focus:outline-none  border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                />
+              </div>
+              <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 '>
+                <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                  사진
+                </span>
+                <input
+                  type='file'
+                  {...register('wasteResourceTypeOne.photo')}
+                  id='wasteResourceTypeOne_photo'
+                  autoComplete='wasteResourceType_photo'
+                  className='block text-right px-2 focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                />
+              </div>
+            </div>
+            <div className='mt-2 grid grid-cols-2'>
+              <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2'>
+                <span className='flex select-none items-center pl-3 text-gray-500 sm:text-sm'>
+                  규격2
+                </span>
+                <input
+                  type='text'
+                  {...register('wasteResourceTypeTwo.name')}
+                  id='wasteResourceTypeTwo_name'
+                  autoComplete='wasteResourceType_name'
+                  className='block flex-1 px-2 focus:outline-none  border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                />
+              </div>
+              <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 '>
+                <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                  사진
+                </span>
+                <input
+                  type='file'
+                  {...register('wasteResourceTypeTwo.photo')}
+                  id='wasteResourceTypeTwo_photo'
+                  autoComplete='wasteResourceType_photo'
+                  className='block px-2 focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                />
+              </div>
+            </div>
+            <div className='mt-2 grid grid-cols-2'>
+              <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2'>
+                <span className='flex select-none items-center pl-3 text-gray-500 sm:text-sm'>
+                  규격3
+                </span>
+                <input
+                  type='text'
+                  {...register('wasteResourceTypeThree.name')}
+                  id='wasteResourceTypeThree_name'
+                  autoComplete='wasteResourceType_name'
+                  className='block flex-1 px-2 focus:outline-none  border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                />
+              </div>
+              <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 '>
+                <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                  사진
+                </span>
+                <input
+                  type='file'
+                  {...register('wasteResourceTypeThree.photo')}
+                  id='wasteResourceTypeThree_photo'
+                  autoComplete='wasteResourceType_photo'
+                  className='block text-right px-2 focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                />
+              </div>
+            </div>
+          </div>
 
           <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
             <fieldset className='sm:col-span-4'>
@@ -286,62 +366,107 @@ function Example() {
                 세부내용을 상세히 작성 바랍니다
               </p> */}
             </div>
-            <div className='sm:col-span-3 sm:col-start-1'>
+            <div className='sm:col-span-full'>
               <label
-                htmlFor='city'
+                htmlFor='username'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
-                거래가능량
+                가격 및 거래량
               </label>
-              <div className='mt-2'>
-                <input
-                  type='text'
-                  {...register('resourceAmount')}
-                  id='resourceAmount'
-                  autoComplete='resourceAmount'
-                  placeholder='주 000톤(ton)'
-                  className='block w-full px-2 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
-                />
+              <div className='mt-2 grid grid-cols-2'>
+                <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2'>
+                  <span className='flex select-none items-center pl-3 text-gray-500 sm:text-sm'>
+                    규격1
+                  </span>
+                  <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                    가격
+                  </span>
+                  <input
+                    type='text'
+                    {...register('amountAndPriceOne.price')}
+                    id='amountAndPriceOne_price'
+                    placeholder='0원 / 개'
+                    autoComplete='amountAndPrice_price'
+                    className='block flex-1 px-2 text-right focus:outline-none  border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                  />
+                </div>
+                <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 '>
+                  <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                    거래가능량
+                  </span>
+                  <input
+                    type='text'
+                    {...register('amountAndPriceOne.amount')}
+                    placeholder='0개/월(회)'
+                    id='amountAndPriceOne_amount'
+                    autoComplete='amountAndPrice_amount'
+                    className='block text-right px-2 focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                  />
+                </div>
+              </div>
+              <div className='mt-2 grid grid-cols-2'>
+                <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2'>
+                  <span className='flex select-none items-center pl-3 text-gray-500 sm:text-sm'>
+                    규격2
+                  </span>
+                  <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                    가격
+                  </span>
+                  <input
+                    type='text'
+                    {...register('amountAndPriceTwo.price')}
+                    id='amountAndPriceTwo_price'
+                    placeholder='0원 / 개'
+                    autoComplete='amountAndPrice_price'
+                    className='block flex-1 px-2 text-right focus:outline-none  border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                  />
+                </div>
+                <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 '>
+                  <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                    거래가능량
+                  </span>
+                  <input
+                    type='text'
+                    {...register('amountAndPriceTwo.amount')}
+                    placeholder='0개/월(회)'
+                    id='amountAndPriceTwo_amount'
+                    autoComplete='amountAndPrice_amount'
+                    className='block text-right px-2 focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                  />
+                </div>
+              </div>
+              <div className='mt-2 grid grid-cols-2'>
+                <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2'>
+                  <span className='flex select-none items-center pl-3 text-gray-500 sm:text-sm'>
+                    규격3
+                  </span>
+                  <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                    가격
+                  </span>
+                  <input
+                    type='text'
+                    {...register('amountAndPriceThree.price')}
+                    id='amountAndPriceThree_price'
+                    placeholder='0원 / 개'
+                    autoComplete='amountAndPrice_price'
+                    className='block flex-1 px-2 text-right focus:outline-none  border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                  />
+                </div>
+                <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 '>
+                  <span className='flex select-none items-center pl-3 text-gray-500 sm:text-xs'>
+                    거래가능량
+                  </span>
+                  <input
+                    type='text'
+                    {...register('amountAndPriceThree.amount')}
+                    placeholder='0개/월(회)'
+                    id='amountAndPriceThree_amount'
+                    autoComplete='amountAndPrice_amount'
+                    className='block text-right px-2 focus:outline-none flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400  sm:text-sm sm:leading-6'
+                  />
+                </div>
               </div>
             </div>
-
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='region'
-                className='block text-sm font-medium leading-6 text-gray-900'
-              >
-                운송량
-              </label>
-              <div className='mt-2'>
-                <input
-                  type='text'
-                  {...register('transitAmount')}
-                  id='transitAmount'
-                  autoComplete='transitAmount'
-                  placeholder='주 00회 (25톤 기준)'
-                  className='block w-full px-2 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
-                />
-              </div>
-            </div>
-            <div className='sm:col-span-4'>
-              <label
-                htmlFor='postal-code'
-                className='block text-sm font-medium leading-6 text-gray-900'
-              >
-                거래희망가격
-              </label>
-              <div className='mt-2'>
-                <input
-                  type='text'
-                  {...register('price')}
-                  id='price'
-                  autoComplete='price'
-                  placeholder='000원 / Kg'
-                  className='block w-full px-2 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6'
-                />
-              </div>
-            </div>
-
             <div className='col-span-full'>
               <label
                 htmlFor='about'
