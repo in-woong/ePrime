@@ -11,13 +11,7 @@ export default function LoginPage() {
 function Example() {
   const navigate = useNavigate();
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-    setError,
-  } = useForm();
+  const { register, handleSubmit, setError } = useForm();
 
   const onSubmit = (data) => {
     axios

@@ -19,7 +19,6 @@ import AdminPickPage from './pages/admin/form/resources/pickPage';
 import AdminProducePage from './pages/admin/form/resources/producePage';
 import AdminProductPage from './pages/admin/form/resources/productPage';
 import AdminSmartFactoryPage from './pages/admin/form/factory/smartFactoryPage';
-import ProductListPage from './pages/admin/form/resources/ProductListPage';
 import ListPage from './pages/listPage';
 
 const router = createBrowserRouter([
@@ -59,7 +58,6 @@ const router = createBrowserRouter([
         path: '/admin/form_produce/:id',
         element: <AdminProducePage />,
       },
-      { path: '/admin/list_product', element: <ProductListPage /> },
     ],
   },
   { path: '/list/:titleId', element: <ListPage /> },
