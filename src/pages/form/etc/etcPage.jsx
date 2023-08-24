@@ -22,7 +22,8 @@ function Example() {
     axios
       .post('/record', data, {
         headars: {
-          'Content-Type': 'application/json',
+          'Content-Type':
+            'http://e-prime-network.ap-northeast-2.elasticbeanstalk.com/application/json',
         },
       })
       .then((res) => {

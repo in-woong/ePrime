@@ -21,11 +21,15 @@ function Example() {
 
   const onSubmit = (data) => {
     axios
-      .post('/record', data, {
-        headars: {
-          'Content-Type': 'application/json',
-        },
-      })
+      .post(
+        'http://e-prime-network.ap-northeast-2.elasticbeanstalk.com/record',
+        data,
+        {
+          headars: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
       .then((res) => {
         if (res.data.success) {
           alert('제출 완료되었습니다.');

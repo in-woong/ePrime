@@ -8,7 +8,7 @@ export default function MainPage() {
   const [news, setNews] = useState([]);
   useEffect(() => {
     axios
-      .get('/news', {
+      .get('http://e-prime-network.ap-northeast-2.elasticbeanstalk.com/news', {
         headers: { 'Content-Type': 'application/json' },
       })
       .then((res) => {

@@ -27,12 +27,15 @@ function Example() {
     const token = localStorage.getItem('key');
     try {
       axios
-        .get('/cms/news', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        })
+        .get(
+          'http://e-prime-network.ap-northeast-2.elasticbeanstalk.com/cms/news',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((res) => {
           if (res.data.result) {
             res.data.result.reverse();
@@ -43,12 +46,15 @@ function Example() {
           console.error(error);
         });
       axios
-        .get('/cms/record?recordType=esg', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        })
+        .get(
+          'http://e-prime-network.ap-northeast-2.elasticbeanstalk.com/cms/record?recordType=esg',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((res) => {
           if (res.data.result) {
             res.data.result.reverse();
@@ -59,12 +65,15 @@ function Example() {
           console.error(error);
         });
       axios
-        .get('/cms/record?recordType=smartFactory', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        })
+        .get(
+          'http://e-prime-network.ap-northeast-2.elasticbeanstalk.com/cms/record?recordType=smartFactory',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((res) => {
           if (res.data.result) {
             res.data.result.reverse();
@@ -75,12 +84,15 @@ function Example() {
           console.error(error);
         });
       axios
-        .get('/cms/record?recordType=etc', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        })
+        .get(
+          'http://e-prime-network.ap-northeast-2.elasticbeanstalk.com/cms/record?recordType=etc',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((res) => {
           if (res.data.result) {
             res.data.result.reverse();
@@ -91,12 +103,15 @@ function Example() {
           console.error(error);
         });
       axios
-        .get('/cms/record?recordType=makeMaterials', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        })
+        .get(
+          'http://e-prime-network.ap-northeast-2.elasticbeanstalk.com/cms/record?recordType=makeMaterials',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((res) => {
           if (res.data.result) {
             res.data.result.reverse();
@@ -107,12 +122,15 @@ function Example() {
           console.error(error);
         });
       axios
-        .get('/cms/record?recordType=makeProduct', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        })
+        .get(
+          'http://e-prime-network.ap-northeast-2.elasticbeanstalk.com/cms/record?recordType=makeProduct',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((res) => {
           if (res.data.result) {
             res.data.result.reverse();
@@ -123,12 +141,15 @@ function Example() {
           console.error(error);
         });
       axios
-        .get('/cms/record?recordType=wholeSale', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        })
+        .get(
+          'http://e-prime-network.ap-northeast-2.elasticbeanstalk.com/cms/record?recordType=wholeSale',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((res) => {
           if (res.data.result) {
             res.data.result.reverse();
