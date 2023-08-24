@@ -15,11 +15,15 @@ function Example() {
 
   const onSubmit = (data) => {
     axios
-      .post('/cms/login', data, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
+      .post(
+        'http://e-prime-network.ap-northeast-2.elasticbeanstalk.com/cms/login',
+        data,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
       .then((res) => {
         localStorage.setItem('key', res.data.token);
 

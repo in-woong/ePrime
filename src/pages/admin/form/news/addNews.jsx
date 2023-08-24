@@ -31,12 +31,16 @@ function Example() {
     const token = localStorage.getItem('key');
 
     axios
-      .post('/cms/news', data, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .post(
+        'http://e-prime-network.ap-northeast-2.elasticbeanstalk.com/cms/news',
+        data,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((res) => {
         if (res.data.success) {
           navigate('/admin');
